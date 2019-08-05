@@ -27,4 +27,4 @@ do
     fi
 done
 
-cat ~/.bash_history | rg -m ${2:-10} -C ${3:-0} "$1"
+tac ~/.bash_history | rg -m ${2:-10} -C ${3:-0} "$1"
