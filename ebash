@@ -1,16 +1,5 @@
-#!/bin/bash
+#!/bin/bash -i
 
-if [ $# == 0 ]
-then
-    echo "BASH SEARCH BY FIZZZGEN AND RIPGREP"
-    echo "-------------------------------------------------------------------"
-    echo "first argument: string to search"
-    echo "second argument: search limit (default 10)"
-    echo "third argument: number of lines near result line to show (default 0)"
-    echo "-------------------------------------------------------------------"
-
-    exit
-fi
 
 for arg in "$@"
 do
@@ -18,13 +7,39 @@ do
     then
 	echo "BASH SEARCH BY FIZZZGEN AND RIPGREP"
 	echo "-------------------------------------------------------------------"
-        echo "first argument: string to search"
+        echo "################## HISTORY SEARCH ####################"
+	echo "first argument: string to search"
 	echo "second argument: search limit (default 10)"
 	echo "third argument: number of lines near result line to show (default 0)"
 	echo "-------------------------------------------------------------------"
+	echo "################# SCRIPTS RECORDING ##################"
+	echo "ebash record SCRIPT_NAME (starts recording a script)"
+	echo "ebash stop (saving a script and stopping)"
+	echo "    script will be avalible after reopening console"
+	echo "    or making source ~/.bashrc"
+	echo "ebash abort (aborting script recording)"
 
     exit
     fi
 done
 
-tac ~/.bash_history | rg -m ${2:-10} -C ${3:-0} "$1"
+for arg in "$@"
+do
+    if [ "$arg" == "record" ]
+    then
+        echo "recording started (or restarted if you dont finish previous)"
+    exit
+    fi
+
+    if [ "$arg" == "stop" ]
+    then
+        echo "getting the script from .bash_history..."
+	history -a
+	python ~/.ebash/record_script.py
+    exit
+    fi
+
+done
+
+
+tac ~/.bash_history | sed '/^ebash/d' | rg -m ${2:-10} -C ${3:-0} "$1"
