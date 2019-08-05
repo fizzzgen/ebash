@@ -2,7 +2,7 @@
 
 if [ $# == 0 ]
 then
-    echo "BASH SEARCH BY FIZZZGEN"
+    echo "BASH SEARCH BY FIZZZGEN AND RIPGREP"
     echo "-------------------------------------------------------------------"
     echo "first argument: string to search"
     echo "second argument: search limit (default 10)"
@@ -16,7 +16,7 @@ for arg in "$@"
 do
     if [ "$arg" == "--help" ] || [ "$arg" == "-h" ]
     then
-	echo "BASH SEARCH BY FIZZZGEN"
+	echo "BASH SEARCH BY FIZZZGEN AND RIPGREP"
 	echo "-------------------------------------------------------------------"
         echo "first argument: string to search"
 	echo "second argument: search limit (default 10)"
