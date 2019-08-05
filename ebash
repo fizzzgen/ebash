@@ -25,19 +25,26 @@ done
 
 for arg in "$@"
 do
-    if [ "$arg" == "record" ]
+    if [ "$arg" == "--record" ]
     then
         echo "recording started (or restarted if you dont finish previous)"
     exit
     fi
 
-    if [ "$arg" == "stop" ]
+    if [ "$arg" == "--stop" ]
     then
-        echo "getting the script from .bash_history..."
-	history -a
+        echo "running record_script.py..."
+	history -w
 	python ~/.ebash/record_script.py
     exit
     fi
+
+     if [ "$arg" == "--abort" ]
+    then
+        echo "aborting.."
+    exit
+    fi
+
 
 done
 
