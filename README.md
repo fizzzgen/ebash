@@ -5,6 +5,8 @@ ripgrep-based bash history searching utility
 
 git clone https://github.com/fizzzgen/ebash
 
+cd ebash
+
 bash ebash_install.sh
 
 source ~/.bashrc
