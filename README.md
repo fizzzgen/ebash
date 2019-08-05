@@ -15,4 +15,4 @@ ebash --help for help
 
 ebash search_string limit=10 lines_above_to_show=0
 
-Have fun!\n
+Have fun!
