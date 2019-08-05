@@ -9,7 +9,7 @@ source ~/.bashrc
 
 # usage
 
-ebash --help for help
-ebash search_string limit=10 lines_above_to_show=0
+ebash --help for help\n
+ebash search_string limit=10 lines_above_to_show=0\n
 
-Have fun!
+Have fun!\n
