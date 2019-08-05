@@ -1,5 +1,17 @@
 #!/bin/bash
 
+if [ $# == 1 ]
+then
+    echo "BASH SEARCH BY FIZZZGEN"
+    echo "-------------------------------------------------------------------"
+    echo "first argument: string to search"
+    echo "second argument: search limit (default 10)"
+    echo "third argument: number of lines near result line to show (default 0)"
+    echo "-------------------------------------------------------------------"
+
+    exit
+fi
+
 for arg in "$@"
 do
     if [ "$arg" == "--help" ] || [ "$arg" == "-h" ]
